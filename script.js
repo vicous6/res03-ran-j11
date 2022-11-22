@@ -157,30 +157,41 @@ form1.addEventListener("submit", function(event){
   
   
   
-   else if (email.value.indexOf("@", 0) < 0)                 
+   if (email.value.indexOf("@", 0) < 0)                 
     { 
         email.classList.add("erreur")
         p[1].innerHTML="Mettez une adresse email valide.";
        
         formOK=false
     }    
-   else if (email.value.indexOf(".", 0) < 0)                 
+    
+    
+    if (email.value.indexOf(".", 0) < 0)                 
     { 
          email.classList.add("erreur")
         p[1].innerHTML="Mettez une adresse email valide."
          
         formOK=false
     }    
- 
+    
+  if (email.value=="")                 
+    { 
+         email.classList.add("erreur")
+        p[1].innerHTML="Rentrer une adresse mail"
+         
+        formOK=false
+    }   
   
- else if(psw1.value== "" ){
+  if(psw1.value== "" ){
     
     psw1.classList.add("erreur")
    p[2].innerHTML="Rentrer une valeur"
    formOK=false
    
   }
-  else if(psw2.value== "" ){
+  
+  
+   if(psw2.value== "" ){
     psw2.classList.add("erreur")
      
    p[2].innerHTML="Rentrer une valeur"
@@ -189,7 +200,7 @@ form1.addEventListener("submit", function(event){
   }
   
     
-  else if(psw1.value!= psw2.value ){
+   if(psw1.value!= psw2.value ){
     psw1.classList.add("erreur")
     psw2.classList.add("erreur")
      
@@ -197,7 +208,7 @@ form1.addEventListener("submit", function(event){
    formOK=false
    
   }
-   else if(formOK==true){
+    if(formOK==true){
    event.target.submit();
    }
 });
@@ -216,7 +227,7 @@ form2.addEventListener("submit",function(event){
  for(let i=0;i<radios.length;i++){
   
   if(radios[i].checked==true){
-   
+
    formOK1=true
   }
  }
